@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-60$jj=!sx7bma!()a3301u!9bs_g90+ldug)(pz2z-1c8t$qpf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-project-aso8.onrender.com', 'localhost', '127.0.0.1']
+
 
 
 # Application definition
@@ -76,16 +77,20 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 import os
 
+import os  # Make sure to import the os module at the top
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os .environ.get('django_project_z42e'),
-        'USER': os .environ.get('django_project_z42e_user'),  
-        'PASSWORD': os .environ.get('7zKdXUSkW81bPYzRLZtWQ2srUR7DMbdS'),  
-        'HOST': os .environ.get('dpg-cupou95ds78s7395fgjg-a'),
-        'PORT': os .environ.get('5432'),
+        'NAME': os.environ.get('DB_NAME'),  # Will get the DB name from environment variable
+        'USER': os.environ.get('DB_USER'),  # Will get the DB user from environment variable
+        'PASSWORD': os.environ.get('DB_PASSWORD'),  # Will get the DB password from environment variable
+        'HOST': os.environ.get('DB_HOST'),  # Will get the DB host from environment variable
+        'PORT': os.environ.get('DB_PORT'),  # Will get the DB port from environment variable (usually 5432)
     }
 }
+
+
 
 
 
