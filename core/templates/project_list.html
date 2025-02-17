@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Projects{% endblock %}
+{% block content %}
+    <h1>Projects List</h1>
+    <ul class="list-group">
+        {% for project in projects %}
+            <li class="list-group-item">
+                <strong>{{ project.name }}</strong> - {{ project.status }}
+                <p>{{ project.description }}</p>
+                <p><em>Start Date: {{ project.start_date }} | End Date: {{ project.end_date }}</em></p>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_project' %}" class="btn btn-primary mt-3">Add New Project</a>
+{% endblock %}

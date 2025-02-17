@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Inbox{% endblock %}
+{% block content %}
+    <h1>Inbox</h1>
+    <ul class="list-group">
+        {% for message in messages %}
+            <li class="list-group-item">
+                <strong>{{ message.sender.username }}</strong>: {{ message.subject }}
+                <p>{{ message.body }}</p>
+                <a href="{% url 'send_message' %}" class="btn btn-primary">Reply</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
